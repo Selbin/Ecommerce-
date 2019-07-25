@@ -1,0 +1,45 @@
+{{#if products }}
+    <div class="jumbotron bg-grey">
+    <div class="row center_div">
+        <div class="col">
+        <ul class="list-group">
+           {{#each products}}   
+            <li class="list-group-item">
+                
+                <strong>{{this.item.title}}</strong>&nbsp
+                <span class="label">Price: ${{this.price}}</span>&nbspQty: 
+                <span class="badge badge-secondary ml-auto">{{this.qty}}</span>
+                <div class="btn-group float-right">
+                    <button class="btn btn-primary dropdown-toggle" type="button"  data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Action</button>
+                    <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                        <a class="dropdown-item" href="/reduce/{{this.item._id}}">Remove 1</a>
+                        <a class="dropdown-item" href="/delete/{{this.item._id}}">Delete All</a>
+                    </div>
+                </div>
+                </li>
+             {{/each}}
+            </ul>
+        </div> 
+    </div> 
+ 
+    <div class="row center_div">
+        <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+            <strong>Total: {{totalPrice}}</strong>
+        </div> 
+    </div> 
+    <hr>
+    <div class="row center_div">
+        <div class="col-sm-6 col-md-6 col-md-offset-3 col-sm-offset-3">
+            <a href="/checkout" type="button" class="btn btn-success">Checkout</a>
+        </div> 
+    </div> 
+    </div>
+    
+  
+{{else }}
+    <div class="row center_div1">
+        <div class="col col-sm-6 col-md-3 col-md-offset-3 center-div"></div>
+            <h2>No items in cart</h2>
+        </div> 
+    </div> 
+{{/if}}
